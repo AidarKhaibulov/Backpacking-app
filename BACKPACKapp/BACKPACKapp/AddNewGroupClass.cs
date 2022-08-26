@@ -46,13 +46,7 @@ namespace BACKPACKapp
                     LocationOfPositionStatus[CurrentLocationOfPosition] = false;
                     ID[j] = false;
                     Buttons[j].BackColor =Color.FromArgb(229,227,228) ;
-                    DataGridViews[j].BackgroundColor = Color.FromArgb(91, 161, 153);
-                    DataGridViews[j].GridColor = Color.FromArgb(91, 161, 153);
-                    DataGridViews[j].ForeColor = Color.FromArgb(91, 161, 153);
-                    //warning
-                    DataGridViews[j].Rows[j].Cells[j].Style.BackColor=Color.FromArgb(91, 161, 153);
-
-
+                    
                     }
                 if (ChangeChecker)
                     break;

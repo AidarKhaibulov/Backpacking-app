@@ -97,7 +97,34 @@ namespace BACKPACKapp
                     CurrentGroupsID++;
                 }
                 else
-                    MessageBox.Show("Group's limit has reached");
+                    MessageBox.Show("Group's limit has been reached");
+            }
+            foreach (DataGridView dgv in DataGridViews)
+            {
+                if (dgv != null)
+                {
+                    // Selection Color
+                    dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(229,227,228);
+                    dgv.DefaultCellStyle.SelectionForeColor = Color.FromArgb(229,227,228);
+
+                    // Default Color
+                    dgv.DefaultCellStyle.BackColor = Color.FromArgb(91, 161, 153);
+                    dgv.DefaultCellStyle.ForeColor = Color.Black;
+                    
+                    dgv.EnableHeadersVisualStyles = false;
+                    dgv.ColumnHeadersDefaultCellStyle.BackColor =
+                       dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(91, 161, 153);
+                    dgv.ColumnHeadersDefaultCellStyle.ForeColor =
+                        dgv.RowHeadersDefaultCellStyle.ForeColor = Color.FromArgb(91, 161, 153);
+                    dgv.ColumnHeadersDefaultCellStyle.Font =
+                        new Font("Times New Roman", 20,FontStyle.Bold);
+                   
+                   
+                    // Фоновый цвет самого DataGridView
+                    dgv.BackgroundColor = Color.FromArgb(91, 161, 153);
+                    // Временно сбрасываем выделения всех ячеек.
+                    dgv.ClearSelection();
+                }
             }
         }
 
