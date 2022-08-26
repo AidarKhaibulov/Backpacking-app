@@ -39,6 +39,7 @@ namespace BACKPACKapp
                                 button[j].Location.Y);
                             labels[j].Location = new Point(labels[j].Location.X - 500,
                                 labels[j].Location.Y);
+                            
                         }
                     }
                 }

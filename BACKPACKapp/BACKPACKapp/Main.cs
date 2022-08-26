@@ -25,6 +25,10 @@ namespace BACKPACKapp
         public Main()
         {
             InitializeComponent();
+            BackColor = Color.FromArgb(70, 149, 151);
+            AddGroupButton.BackColor = Color.FromArgb(229,227,228);
+            SaveButton.BackColor = Color.FromArgb(229, 227, 228);
+
             totalWeightTextBox.Text = 0.ToString();
         }
 
