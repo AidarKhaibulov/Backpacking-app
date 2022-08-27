@@ -34,7 +34,7 @@ namespace BACKPACKapp
                     DataGridViews[j].Columns.Add("_name", "Name");
                     DataGridViews[j].Columns.Add("_description", "Description");
                     DataGridViews[j].Columns.Add("_weight", "Weight");
-                    DataGridViews[j].Columns[1].Width = 207;
+                    DataGridViews[j].Columns[1].Width = 247;
                     Buttons[j].Location = new Point(GroupsLocationsCoordinatesForButtons[0,CurrentLocationOfPosition],GroupsLocationsCoordinatesForButtons[1,CurrentLocationOfPosition] );
                     Buttons[j].Name = "button" + j;
                     Buttons[j].Text = @"Delete";

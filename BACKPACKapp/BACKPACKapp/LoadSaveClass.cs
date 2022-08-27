@@ -9,6 +9,7 @@ namespace BACKPACKapp
 {
     public static class LoadSaveClass
     {
+        
         public static void SaveData(DataGridView[] dataGridViews,Button[] button, bool [] PositionStatus,Label[] labels,string name, int [] WeightsOfGroups)
         {
             if (PositionStatus.Any(x => x == false))
@@ -17,9 +18,8 @@ namespace BACKPACKapp
                 {
                     if (dataGridViews[i] != null)
                     {
-                        Directory.CreateDirectory(Environment.CurrentDirectory + @"\" + name );
-                        //string file = Environment.CurrentDirectory + @"\Data\" + i + @"DGV.txt";
-                        string file = Environment.CurrentDirectory + @"\"+ name+@"\"+ i + @"DGV.txt";
+                        Directory.CreateDirectory(Environment.CurrentDirectory + @"\Saves\" + name );
+                        string file = Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ i + @"DGV.txt";
                         using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
                         {
                             bw.Write(dataGridViews[i].Columns.Count);
@@ -43,27 +43,27 @@ namespace BACKPACKapp
                             }
                         }
 
-                        file = Environment.CurrentDirectory + @"\"+ name+@"\"+ i + @"DGVLocation.txt";
+                        file = Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ i + @"DGVLocation.txt";
                         using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
                         {
                             bw.Write(dataGridViews[i].Location.X);
                             bw.Write(dataGridViews[i].Location.Y);
                         }
 
-                        file = Environment.CurrentDirectory + @"\"+ name+@"\"+ i + @"ButtonLocation.txt";
+                        file = Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ i + @"ButtonLocation.txt";
                         using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
                         {
                             bw.Write(button[i].Location.X);
                             bw.Write(button[i].Location.Y);
                         }
-                        file = Environment.CurrentDirectory + @"\"+ name+@"\"+ i + @"LabelLocation.txt";
+                        file = Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ i + @"LabelLocation.txt";
                         using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
                         {
                             bw.Write(labels[i].Location.X);
                             bw.Write(labels[i].Location.Y);
                             bw.Write(labels[i].Text);
                         }
-                        file = Environment.CurrentDirectory + @"\"+ name+@"\"+  @"Weights.txt";
+                        file = Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+  @"Weights.txt";
                         using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
                             foreach (var VARIABLE in WeightsOfGroups)
                                 bw.Write(VARIABLE);
@@ -74,10 +74,10 @@ namespace BACKPACKapp
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    System.IO.File.Delete(Environment.CurrentDirectory + @"\"+ name+@"\"+ i + @"DGV.txt");
-                    System.IO.File.Delete(Environment.CurrentDirectory + @"\"+ name+@"\"+ i + @"DGVLocation.txt");
-                    System.IO.File.Delete(Environment.CurrentDirectory + @"\"+ name+@"\"+ i + @"ButtonLocation.txt");
-                    System.IO.File.Delete(Environment.CurrentDirectory + @"\"+ name+@"\"+ i + @"LabelLocation.txt");
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ i + @"DGV.txt");
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ i + @"DGVLocation.txt");
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ i + @"ButtonLocation.txt");
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ i + @"LabelLocation.txt");
                 }
             }
         }
@@ -86,7 +86,7 @@ namespace BACKPACKapp
         {
             int count = 0;
             for (int k = 0; k < 10; k++)
-                if (File.Exists(Environment.CurrentDirectory + @"\"+ name+@"\"+ k + @"DGV.txt"))
+                if (File.Exists(Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ k + @"DGV.txt"))
                     count++;
             return count;
         }
@@ -96,11 +96,9 @@ namespace BACKPACKapp
             for (int k = 0; k < 10; k++)
             {
                 
-                if (File.Exists(Environment.CurrentDirectory + @"\"+ name+@"\"+ k + @"DGV.txt"))
+                if (File.Exists(Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ k + @"DGV.txt"))
                 {
-                    string file = Environment.CurrentDirectory  + @"\"+ name+@"\"+ k + @"DGV.txt";
-                    
-                    //dataGridViews[k].Rows.Clear();
+                    string file = Environment.CurrentDirectory  + @"\Saves\"+ name+@"\"+ k + @"DGV.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                     {
                         int n = bw.ReadInt32();
@@ -118,21 +116,21 @@ namespace BACKPACKapp
                             }
                         }
                     }
-                    file= Environment.CurrentDirectory  + @"\"+ name+@"\"+ k + @"DGVLocation.txt";
+                    file= Environment.CurrentDirectory  + @"\Saves\"+ name+@"\"+ k + @"DGVLocation.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                     {
                         int x = bw.ReadInt32();
                         int y = bw.ReadInt32();
                         dataGridViews[k].Location = new Point(x, y);
                     }
-                    file= Environment.CurrentDirectory  + @"\"+ name+@"\"+ k + @"ButtonLocation.txt";
+                    file= Environment.CurrentDirectory  + @"\Saves\"+ name+@"\"+ k + @"ButtonLocation.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                     {
                         int x = bw.ReadInt32();
                         int y = bw.ReadInt32();
                         button[k].Location = new Point(x, y);
                     }
-                    file= Environment.CurrentDirectory  + @"\"+ name+@"\"+ k + @"LabelLocation.txt";
+                    file= Environment.CurrentDirectory  + @"\Saves\"+ name+@"\"+ k + @"LabelLocation.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                     {
                         int x = bw.ReadInt32();
@@ -141,7 +139,7 @@ namespace BACKPACKapp
                         labels[k].Location = new Point(x, y);
                         labels[k].Text = text;
                     }
-                    file = Environment.CurrentDirectory + @"\"+ name+@"\"+  @"Weights.txt";
+                    file = Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+  @"Weights.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                         for (int i = 0; i < 6; i++)
                             WeightsOfGroups[i] = bw.ReadInt32();

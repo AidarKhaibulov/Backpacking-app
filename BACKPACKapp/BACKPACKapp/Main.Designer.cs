@@ -37,7 +37,7 @@
             // 
             // AddGroupButton
             // 
-            this.AddGroupButton.Location = new System.Drawing.Point(26, 21);
+            this.AddGroupButton.Location = new System.Drawing.Point(58, 21);
             this.AddGroupButton.Name = "AddGroupButton";
             this.AddGroupButton.Size = new System.Drawing.Size(231, 36);
             this.AddGroupButton.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(263, 21);
+            this.SaveButton.Location = new System.Drawing.Point(295, 21);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(221, 36);
             this.SaveButton.TabIndex = 2;

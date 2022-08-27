@@ -112,18 +112,17 @@ namespace BACKPACKapp
                     dgv.DefaultCellStyle.ForeColor = Color.Black;
                     
                     dgv.EnableHeadersVisualStyles = false;
-                    dgv.ColumnHeadersDefaultCellStyle.BackColor =
-                       dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(91, 161, 153);
+                        dgv.ColumnHeadersDefaultCellStyle.BackColor =
+                      dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(91, 161, 153);
                     dgv.ColumnHeadersDefaultCellStyle.ForeColor =
                         dgv.RowHeadersDefaultCellStyle.ForeColor = Color.FromArgb(91, 161, 153);
                     dgv.ColumnHeadersDefaultCellStyle.Font =
-                        new Font("Times New Roman", 20,FontStyle.Bold);
-                   
-                   
-                    // Фоновый цвет самого DataGridView
+                        new Font("Times New Roman", 10,FontStyle.Bold);
+                    dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+                    
                     dgv.BackgroundColor = Color.FromArgb(91, 161, 153);
-                    // Временно сбрасываем выделения всех ячеек.
                     dgv.ClearSelection();
+                    dgv.RowHeadersVisible = false;
                 }
             }
         }
