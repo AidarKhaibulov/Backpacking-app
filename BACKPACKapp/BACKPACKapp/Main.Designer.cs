@@ -37,21 +37,26 @@
             // 
             // AddGroupButton
             // 
-            this.AddGroupButton.Location = new System.Drawing.Point(58, 21);
+            this.AddGroupButton.BackColor = System.Drawing.SystemColors.Window;
+            this.AddGroupButton.BackgroundImage = global::BACKPACKapp.Properties.Resources.m_add_addition_increase_math_symbol_plus_icon_491948;
+            this.AddGroupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddGroupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddGroupButton.Location = new System.Drawing.Point(24, 12);
             this.AddGroupButton.Name = "AddGroupButton";
-            this.AddGroupButton.Size = new System.Drawing.Size(231, 36);
+            this.AddGroupButton.Size = new System.Drawing.Size(51, 40);
             this.AddGroupButton.TabIndex = 0;
-            this.AddGroupButton.Text = "Add new group";
-            this.AddGroupButton.UseVisualStyleBackColor = true;
+            this.AddGroupButton.UseVisualStyleBackColor = false;
             this.AddGroupButton.Click += new System.EventHandler(this.AddGroupButton_Click);
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(295, 21);
+            this.SaveButton.BackgroundImage = global::BACKPACKapp.Properties.Resources.m_m_224_2243078_png_file_save_icon_vector_png;
+            this.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.SaveButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SaveButton.Location = new System.Drawing.Point(81, 12);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(221, 36);
+            this.SaveButton.Size = new System.Drawing.Size(40, 40);
             this.SaveButton.TabIndex = 2;
-            this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
@@ -75,6 +80,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.totalWeightTextBox);
             this.Controls.Add(this.label1);

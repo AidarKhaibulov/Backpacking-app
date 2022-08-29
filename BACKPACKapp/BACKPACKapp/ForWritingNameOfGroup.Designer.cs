@@ -35,20 +35,21 @@ namespace BACKPACKapp
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 36);
+            this.textBox1.Location = new System.Drawing.Point(106, 36);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(215, 22);
             this.textBox1.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(91, 9);
+            this.label1.Location = new System.Drawing.Point(106, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 34);
+            this.label1.Size = new System.Drawing.Size(275, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Write the name of the new group";
             // 
@@ -72,22 +73,35 @@ namespace BACKPACKapp
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(81, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(288, 34);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Or select the list you want to open below";
+            this.label2.Visible = false;
+            // 
             // ForWritingNameOfGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 475);
+            this.ClientSize = new System.Drawing.Size(421, 475);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ForWritingNameOfGroup";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Write the capture";
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label2;
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

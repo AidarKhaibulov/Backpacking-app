@@ -94,5 +94,9 @@
     <ItemGroup>
         <None Include="App.config" />
     </ItemGroup>
+    <ItemGroup>
+      <Content Include="Resources\m_add_addition_increase_math_symbol_plus_icon_491948.png" />
+      <Content Include="Resources\m_m_224_2243078_png_file_save_icon_vector_png.png" />
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
