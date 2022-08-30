@@ -96,7 +96,9 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include="Resources\m_add_addition_increase_math_symbol_plus_icon_491948.png" />
+      <Content Include="Resources\m_fb_icon_with_png_and_vector_format_for_free_unlimited_download_744272.png" />
       <Content Include="Resources\m_m_224_2243078_png_file_save_icon_vector_png.png" />
+      <Content Include="Resources\m_png_clipart_computer_icons_plus_and_minus_signs_symbol_blue_cross_miscellaneous_cross.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

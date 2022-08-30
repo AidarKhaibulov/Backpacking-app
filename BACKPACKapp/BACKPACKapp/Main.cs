@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -101,9 +102,15 @@ namespace BACKPACKapp
         public void AddGroupButton_Click(object sender, EventArgs e)
         {
             ForWritingNameOfGroup nameOfGroup = new ForWritingNameOfGroup("");
-            
+            Graphics g = CreateGraphics();
+            Point[] points = new Point[3];
+            points[0].X = 52; points[0].Y = 41;
+            points[1].X = 182; points[1].Y = 80;
+            points[2].X = 82; points[2].Y = 150;
+            g.FillPolygon(Brushes.Silver, points);
             nameOfGroup.ShowDialog();
-            Location = new Point(40, 55);
+            g.Clear(Color.FromArgb(70, 149, 151));
+            
             string name =nameOfGroup.textBox1.Text;
             if (nameOfGroup.Result)
             {
@@ -179,8 +186,15 @@ namespace BACKPACKapp
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            Graphics g = CreateGraphics();
+            Point[] points = new Point[3];
+            points[0].X = 89; points[0].Y = 41;
+            points[1].X = 220; points[1].Y = 80;
+            points[2].X = 120; points[2].Y = 150;
+            g.FillPolygon(Brushes.Silver, points);
             ForWritingNameOfGroup nameOfGroup = new ForWritingNameOfGroup("SaveGroup");
             nameOfGroup.ShowDialog();
+            g.Clear(Color.FromArgb(70, 149, 151));
             string name =nameOfGroup.textBox1.Text;
             if (nameOfGroup.Result)
                 LoadSaveClass.SaveData(DataGridViews,Buttons,PositionStatus,Labels,name,WeightsOfGroups);

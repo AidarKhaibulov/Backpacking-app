@@ -38,12 +38,12 @@
             // AddGroupButton
             // 
             this.AddGroupButton.BackColor = System.Drawing.SystemColors.Window;
-            this.AddGroupButton.BackgroundImage = global::BACKPACKapp.Properties.Resources.m_add_addition_increase_math_symbol_plus_icon_491948;
-            this.AddGroupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddGroupButton.BackgroundImage = global::BACKPACKapp.Properties.Resources.m_png_clipart_computer_icons_plus_and_minus_signs_symbol_blue_cross_miscellaneous_cross;
+            this.AddGroupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddGroupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddGroupButton.Location = new System.Drawing.Point(24, 12);
+            this.AddGroupButton.Location = new System.Drawing.Point(35, 14);
             this.AddGroupButton.Name = "AddGroupButton";
-            this.AddGroupButton.Size = new System.Drawing.Size(51, 40);
+            this.AddGroupButton.Size = new System.Drawing.Size(40, 40);
             this.AddGroupButton.TabIndex = 0;
             this.AddGroupButton.UseVisualStyleBackColor = false;
             this.AddGroupButton.Click += new System.EventHandler(this.AddGroupButton_Click);
@@ -53,7 +53,7 @@
             this.SaveButton.BackgroundImage = global::BACKPACKapp.Properties.Resources.m_m_224_2243078_png_file_save_icon_vector_png;
             this.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SaveButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SaveButton.Location = new System.Drawing.Point(81, 12);
+            this.SaveButton.Location = new System.Drawing.Point(81, 14);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(40, 40);
             this.SaveButton.TabIndex = 2;
@@ -86,6 +86,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AddGroupButton);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Main";
             this.Text = "BACKPACKapp";

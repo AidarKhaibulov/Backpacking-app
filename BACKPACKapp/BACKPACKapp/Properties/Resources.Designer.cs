@@ -73,9 +73,30 @@ namespace BACKPACKapp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap m_fb_icon_with_png_and_vector_format_for_free_unlimited_download_744272 {
+            get {
+                object obj = ResourceManager.GetObject("m_fb_icon_with_png_and_vector_format_for_free_unlimited_download_744272", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap m_m_224_2243078_png_file_save_icon_vector_png {
             get {
                 object obj = ResourceManager.GetObject("m_m_224_2243078_png_file_save_icon_vector_png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap m_png_clipart_computer_icons_plus_and_minus_signs_symbol_blue_cross_miscellaneous_cross {
+            get {
+                object obj = ResourceManager.GetObject("m_png_clipart_computer_icons_plus_and_minus_signs_symbol_blue_cross_miscellaneous" +
+                        "_cross", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

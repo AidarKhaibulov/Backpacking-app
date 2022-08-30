@@ -24,8 +24,7 @@ namespace BACKPACKapp
                 label1.Text = "Write the name of this list";
                 label1.Location = new Point(95, 10);
                 label1.Size = new Size(215, 15);
-                Location = new Point(87,55);
-
+                Location = new Point(100,75);
             }
 
             if (action == "LoadGroup")
