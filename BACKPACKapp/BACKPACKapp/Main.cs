@@ -35,11 +35,16 @@ namespace BACKPACKapp
 
         private void Main_Load(object sender, EventArgs e)
         {
+            ToolTip t = new ToolTip();
+            t.SetToolTip(SaveButton, "Save");
+            t.SetToolTip(AddGroupButton, "Add new group");
+
             ForWritingNameOfGroup nameOfGroup = new ForWritingNameOfGroup("LoadGroup");
             nameOfGroup.ShowDialog();
             string name =nameOfGroup.textBox1.Text;
             if (LoadSaveClass.CheckLoadData(name) != 0)
             {
+                label2.Text = name;
                 for (CurrentGroupsID = 0; CurrentGroupsID < LoadSaveClass.CheckLoadData(name);)
                 {
                     int j;
@@ -58,30 +63,29 @@ namespace BACKPACKapp
                     ID[j] = false;
                     CurrentGroupsID++;
                     
-                    foreach (DataGridView dgv in DataGridViews)
                     {
-                        if (dgv != null)
+                        if (DataGridViews[j] != null)
                         {
                             // Selection Color
-                            dgv.DefaultCellStyle.SelectionBackColor = Color.Transparent;
+                            DataGridViews[j].DefaultCellStyle.SelectionBackColor = Color.Transparent;
                             //dgv.DefaultCellStyle.SelectionForeColor = Color.Transparent;
 
                             // Default Color
-                            dgv.DefaultCellStyle.BackColor = Color.FromArgb(91, 161, 153);
-                            dgv.DefaultCellStyle.ForeColor = Color.Black;
+                            DataGridViews[j].DefaultCellStyle.BackColor = Color.FromArgb(91, 161, 153);
+                            DataGridViews[j].DefaultCellStyle.ForeColor = Color.Black;
                     
-                            dgv.EnableHeadersVisualStyles = false;
-                            dgv.ColumnHeadersDefaultCellStyle.BackColor =
-                                dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(91, 161, 153);
-                            dgv.ColumnHeadersDefaultCellStyle.ForeColor =
-                                dgv.RowHeadersDefaultCellStyle.ForeColor = Color.FromArgb(91, 161, 153);
-                            dgv.ColumnHeadersDefaultCellStyle.Font =
+                            DataGridViews[j].EnableHeadersVisualStyles = false;
+                            DataGridViews[j].ColumnHeadersDefaultCellStyle.BackColor =
+                                DataGridViews[j].RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(91, 161, 153);
+                            DataGridViews[j].ColumnHeadersDefaultCellStyle.ForeColor =
+                                DataGridViews[j].RowHeadersDefaultCellStyle.ForeColor = Color.FromArgb(91, 161, 153);
+                            DataGridViews[j].ColumnHeadersDefaultCellStyle.Font =
                                 new Font("Times New Roman", 10,FontStyle.Bold);
-                            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+                            DataGridViews[j].ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
                     
-                            dgv.BackgroundColor = Color.FromArgb(91, 161, 153);
-                            dgv.RowHeadersVisible = false;
-                            dgv.ClearSelection();
+                            DataGridViews[j].BackgroundColor = Color.FromArgb(91, 161, 153);
+                            DataGridViews[j].RowHeadersVisible = false;
+                            DataGridViews[j].ClearSelection();
                         }
                     }
                 }

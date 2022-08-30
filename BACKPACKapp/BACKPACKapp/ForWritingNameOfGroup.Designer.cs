@@ -86,7 +86,7 @@ namespace BACKPACKapp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 475);
+            this.ClientSize = new System.Drawing.Size(421, 129);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);

@@ -33,6 +33,7 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.totalWeightTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddGroupButton
@@ -75,6 +76,15 @@
             this.totalWeightTextBox.Size = new System.Drawing.Size(105, 22);
             this.totalWeightTextBox.TabIndex = 4;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Uighur", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label2.Location = new System.Drawing.Point(757, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(495, 76);
+            this.label2.TabIndex = 5;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -82,6 +92,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.totalWeightTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SaveButton);
@@ -95,6 +106,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label2;
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox totalWeightTextBox;

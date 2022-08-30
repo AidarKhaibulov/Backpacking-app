@@ -31,6 +31,7 @@ namespace BACKPACKapp
             {
                 Text = "Load data";
                 Location = new Point(590,260);
+                Size = new Size(321,475);
                 label1.Visible = false;
                 textBox1.Visible = false;
                 button1.Visible = false;
@@ -72,8 +73,13 @@ namespace BACKPACKapp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Result = true;
-            Close();
+            if (textBox1.Text != "")
+            {
+                Result = true;
+                Close();
+            }
+            else
+            MessageBox.Show("Write the name of group!");
         }
 
         private void button2_Click(object sender, EventArgs e)

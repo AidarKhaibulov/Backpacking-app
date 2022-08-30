@@ -8,7 +8,7 @@ namespace BACKPACKapp
     {
         private static int[,] GroupsLocationsCoordinatesForDataGridView = { {45,545,1045,45,545,1045},{300,300,300,550,550,550} };
         private static int[,] GroupsLocationsCoordinatesForButtons = { {435,935,1435,435,935,1435},{280,280,280,530,530,530} };
-        private static int[,] GroupsLocationsCoordinatesForLabels = { {335,835,1335,335,835,1335},{280,280,280,530,530,530} };
+        private static int[,] GroupsLocationsCoordinatesForLabels = { {45,545,1045,45,545,1045},{280,280,280,530,530,530} };
         private bool[] LocationOfPositionStatus = {true, true, true, true, true, true};
         private int j = 0;
         public void AddNewGroup(string name,Label[] labels,bool[] ID,DataGridView[] DataGridViews,Button[] Buttons, int CurrentGroupsID, out DataGridView dataGridViewReturn,out Button button,out bool[] locationOfPositionStatusReturn,out bool[] IDReturn,out int l)
