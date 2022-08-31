@@ -63,6 +63,16 @@ namespace BACKPACKapp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cross {
+            get {
+                object obj = ResourceManager.GetObject("cross", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap m_add_addition_increase_math_symbol_plus_icon_491948 {
             get {
                 object obj = ResourceManager.GetObject("m_add_addition_increase_math_symbol_plus_icon_491948", resourceCulture);
@@ -76,6 +86,16 @@ namespace BACKPACKapp.Properties {
         internal static System.Drawing.Bitmap m_fb_icon_with_png_and_vector_format_for_free_unlimited_download_744272 {
             get {
                 object obj = ResourceManager.GetObject("m_fb_icon_with_png_and_vector_format_for_free_unlimited_download_744272", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap m_free_icon_open_archive_73581 {
+            get {
+                object obj = ResourceManager.GetObject("m_free_icon_open_archive_73581", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

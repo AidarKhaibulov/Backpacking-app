@@ -8,10 +8,12 @@ namespace BACKPACKapp
     public partial class ForWritingNameOfGroup : Form
     {
         public bool Result;
+        private Label[] l;
         private static Button[] _buttons = new Button[10];
-        public ForWritingNameOfGroup(string action)
+        public ForWritingNameOfGroup(string action,Label[] labels=null)
         {
             
+            l = labels;
             for(int i=0;i<_buttons.Length;i++)
                 _buttons[i] = new Button();
             InitializeComponent();
@@ -64,6 +66,45 @@ namespace BACKPACKapp
                     label2.Visible = true;
                 }
             }
+            if (action == "OpenGroup")
+            {
+                Text = "Open file";
+                Location = new Point(135,75);
+                label2.Location = new Point(81,21);
+                label2.Text = "Select the file you want to open";
+                Size = new Size(321,475);
+                label1.Visible = false;
+                textBox1.Visible = false;
+                button1.Visible = false;
+                button2.Location = new Point(40, 10);
+                button2.Size = new Size(240, 20);
+                button2.Visible = false;
+                int counter = 0;
+                foreach (var file in Directory.GetDirectories(Environment.CurrentDirectory + @"\Saves\"))
+                {
+                    counter++;
+                    int i = file.Length - 1;
+                    string FileName = "";
+                    string b = "";
+                    while (!file[i].Equals('\\'))
+                    {
+                        b += file[i];
+                        i--;
+                    }
+
+                    for (int j = b.Length - 1; j >= 0; j--)
+                        FileName += b[j];
+
+                    _buttons[counter - 1].Location = new Point(40, 58 + counter * 20);
+                    _buttons[counter - 1].Name = "button" + (counter - 1);
+                    _buttons[counter - 1].Text = FileName;
+                    _buttons[counter - 1].Size = new Size(240, 20);
+                    _buttons[counter - 1].BackColor=Color.FromArgb(229,227,228);
+                    Controls.Add(_buttons[counter - 1]);
+                    _buttons[counter - 1].Click += FastLoadButtonAction;
+                    label2.Visible = true;
+                }
+            }
         }
         public void FastLoadButtonAction(object sender, EventArgs e)
         {
@@ -73,13 +114,13 @@ namespace BACKPACKapp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (textBox1.Text != "" /*&& l.All(s=> textBox1.Text!=s.Text)*/ )
             {
                 Result = true;
                 Close();
             }
-            else
-            MessageBox.Show("Write the name of group!");
+            else    
+                MessageBox.Show("Write the name of group!");
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -34,11 +34,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.totalWeightTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.OpenFileButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddGroupButton
             // 
-            this.AddGroupButton.BackColor = System.Drawing.SystemColors.Window;
+            this.AddGroupButton.BackColor = System.Drawing.Color.Transparent;
             this.AddGroupButton.BackgroundImage = global::BACKPACKapp.Properties.Resources.m_png_clipart_computer_icons_plus_and_minus_signs_symbol_blue_cross_miscellaneous_cross;
             this.AddGroupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddGroupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -51,6 +52,7 @@
             // 
             // SaveButton
             // 
+            this.SaveButton.BackColor = System.Drawing.Color.Transparent;
             this.SaveButton.BackgroundImage = global::BACKPACKapp.Properties.Resources.m_m_224_2243078_png_file_save_icon_vector_png;
             this.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SaveButton.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -58,7 +60,7 @@
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(40, 40);
             this.SaveButton.TabIndex = 2;
-            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // label1
@@ -85,6 +87,19 @@
             this.label2.TabIndex = 5;
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // OpenFileButton
+            // 
+            this.OpenFileButton.BackColor = System.Drawing.Color.Transparent;
+            this.OpenFileButton.BackgroundImage = global::BACKPACKapp.Properties.Resources.m_free_icon_open_archive_73581;
+            this.OpenFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OpenFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OpenFileButton.Location = new System.Drawing.Point(127, 14);
+            this.OpenFileButton.Name = "OpenFileButton";
+            this.OpenFileButton.Size = new System.Drawing.Size(40, 40);
+            this.OpenFileButton.TabIndex = 6;
+            this.OpenFileButton.UseVisualStyleBackColor = false;
+            this.OpenFileButton.Click += new System.EventHandler(this.OpenFileButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -92,6 +107,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.OpenFileButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.totalWeightTextBox);
             this.Controls.Add(this.label1);
@@ -106,6 +122,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button OpenFileButton;
 
         private System.Windows.Forms.Label label2;
 

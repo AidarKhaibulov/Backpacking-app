@@ -5,7 +5,7 @@ namespace BACKPACKapp
 {
     public static class UpdatingGroupsLocationClass
     {
-        public static void Update(Label[] labels,bool[] ID,int CurrentGroupsID,int p,bool[] PositionStatusR, DataGridView[] dataGridView, Button[] button,out bool[] PosStat,out DataGridView[] dataGridViewsReturn,out Button[] buttonsReturn,out int currentGroupsIDReturn)
+        public static void Update(Label[] labels,Label[] weight,bool[] ID,int CurrentGroupsID,int p,bool[] PositionStatusR, DataGridView[] dataGridView, Button[] button,out bool[] PosStat,out DataGridView[] dataGridViewsReturn,out Button[] buttonsReturn,out int currentGroupsIDReturn)
         {
             bool[] PositionStatus = PositionStatusR;
             int Coordinates = dataGridView[p].Location.X+dataGridView[p].Location.Y;
@@ -13,6 +13,7 @@ namespace BACKPACKapp
             dataGridView[p].Dispose();
             button[p].Dispose();
             labels[p].Dispose();
+            weight[p].Dispose();
             ID[p] = true;
             CurrentGroupsID--;
             for (int j = 0; j < 6; j++)
@@ -28,8 +29,9 @@ namespace BACKPACKapp
                             dataGridView[j].Location.Y == 550)
                         {
                             dataGridView[j].Location = new Point(1045,300);
-                            button[j].Location = new Point(1435,280);
-                            labels[j].Location = new Point(1335,280);
+                            button[j].Location = new Point(1476,280);
+                            labels[j].Location = new Point(1045,280);
+                            weight[j].Location = new Point(1245,280);
                         }
                         else
                         {
@@ -39,6 +41,8 @@ namespace BACKPACKapp
                                 button[j].Location.Y);
                             labels[j].Location = new Point(labels[j].Location.X - 500,
                                 labels[j].Location.Y);
+                            weight[j].Location = new Point(weight[j].Location.X - 500,
+                                weight[j].Location.Y);
                             
                         }
                     }
