@@ -35,6 +35,7 @@
             this.totalWeightTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.OpenFileButton = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AddGroupButton
@@ -100,6 +101,16 @@
             this.OpenFileButton.UseVisualStyleBackColor = false;
             this.OpenFileButton.Click += new System.EventHandler(this.OpenFileButton_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1892, 28);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(60, 24);
+            this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.Enter += new System.EventHandler(this.comboBox1_Enter);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -107,6 +118,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.OpenFileButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.totalWeightTextBox);
@@ -122,6 +134,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ComboBox comboBox1;
 
         private System.Windows.Forms.Button OpenFileButton;
 

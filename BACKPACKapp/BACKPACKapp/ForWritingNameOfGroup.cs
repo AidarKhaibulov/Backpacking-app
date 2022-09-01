@@ -76,9 +76,10 @@ namespace BACKPACKapp
                 label1.Visible = false;
                 textBox1.Visible = false;
                 button1.Visible = false;
-                button2.Location = new Point(40, 10);
-                button2.Size = new Size(240, 20);
-                button2.Visible = false;
+                button2.Location = new Point(300, 18);
+                button2.Size = new Size(20, 20);
+                button2.Text = "X";
+                button2.Visible = true;
                 int counter = 0;
                 foreach (var file in Directory.GetDirectories(Environment.CurrentDirectory + @"\Saves\"))
                 {

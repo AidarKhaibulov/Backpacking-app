@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 namespace BACKPACKapp
 {
@@ -15,6 +17,14 @@ namespace BACKPACKapp
         private bool[] PositionStatus =  {true, true, true, true, true, true};
         private bool[] ID = {true, true, true, true, true, true};
         private int[] WeightsOfGroups = {0, 0, 0, 0, 0, 0, 0};
+        private string comboBoxPreviousValue;
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
+ 
+        private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+        private const int MOUSEEVENTF_LEFTUP = 0x04;
+        private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
+        private const int MOUSEEVENTF_RIGHTUP = 0x10;
         public Main()
         {
             InitializeComponent();
@@ -22,6 +32,11 @@ namespace BACKPACKapp
             AddGroupButton.BackColor = Color.FromArgb(229,227,228);
             SaveButton.BackColor = Color.FromArgb(229, 227, 228);
             totalWeightTextBox.Text = 0.ToString();
+            comboBox1.Items.Add("kg");
+            comboBox1.Items.Add("lb");
+            comboBox1.SelectedItem = "kg";
+            
+
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -275,5 +290,55 @@ namespace BACKPACKapp
             CalculatingSummaryWeight(WeightsOfGroups);
             
         }
+
+        private void comboBox1_Enter(object sender, EventArgs e)
+        {
+            comboBoxPreviousValue = comboBox1.Text;
+        }
+
+       
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(WeightsOfGroups.Any(x => x != 0))
+            switch (comboBox1.SelectedItem)
+            {
+                case "kg":
+                    switch (comboBoxPreviousValue)
+                    {
+                        case "lb":
+                            for(int i=0;i<WeightsOfGroups.Length;i++)
+                                WeightsOfGroups[i]= (int) (WeightsOfGroups[i] * 0.45359237);
+                            CalculatingSummaryWeight(WeightsOfGroups);
+                            LeftClick();
+                            break;
+                        case "kg":
+                            break;
+                    }
+                    break;
+                
+                case "lb":
+                    switch (comboBoxPreviousValue)
+                    {
+                        case "kg":
+                            for(int i=0;i<WeightsOfGroups.Length;i++)
+                                WeightsOfGroups[i]= (int) (WeightsOfGroups[i] * 2.204622);
+                            CalculatingSummaryWeight(WeightsOfGroups);
+                            LeftClick();
+                            break;
+                        case "lb":
+                            break;
+                    }
+                    break;
+            }
+        }
+        
+        private static void LeftClick()
+        { 
+            Cursor.Position = new Point(1400, 52);
+            mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, Cursor.Position.X, Cursor.Position.Y, 0, 0);
+
+        }
+        
     }
 }
