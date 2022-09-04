@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BACKPACKapp
@@ -13,10 +14,19 @@ namespace BACKPACKapp
         public ForWritingNameOfGroup(string action,Label[] labels=null)
         {
             
+            
+            InitializeComponent();
             l = labels;
+            for (int i = 0; i < 6; i++)
+                if (l != null && l[i] == null)
+                {
+                    l[i] = new Label();
+                    l[i].Text = "";
+                }
+            
+
             for(int i=0;i<_buttons.Length;i++)
                 _buttons[i] = new Button();
-            InitializeComponent();
             BackColor = Color.FromArgb(187,198,200);
             textBox1.BackColor=Color.FromArgb(229,227,228);
             button1.BackColor=Color.FromArgb(229,227,228);
@@ -115,12 +125,15 @@ namespace BACKPACKapp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" /*&& l.All(s=> textBox1.Text!=s.Text)*/ )
+            if (textBox1.Text != "" && l.All(s=> textBox1.Text!=s.Text) )
             {
                 Result = true;
                 Close();
             }
             else    
+            if(textBox1.Text != "")
+                MessageBox.Show("This name already exists!");
+            else 
                 MessageBox.Show("Write the name of group!");
         }
 

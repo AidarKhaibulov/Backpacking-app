@@ -23,8 +23,6 @@ namespace BACKPACKapp
  
         private const int MOUSEEVENTF_LEFTDOWN = 0x02;
         private const int MOUSEEVENTF_LEFTUP = 0x04;
-        private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
-        private const int MOUSEEVENTF_RIGHTUP = 0x10;
         public Main()
         {
             InitializeComponent();
@@ -32,9 +30,9 @@ namespace BACKPACKapp
             AddGroupButton.BackColor = Color.FromArgb(229,227,228);
             SaveButton.BackColor = Color.FromArgb(229, 227, 228);
             totalWeightTextBox.Text = 0.ToString();
-            comboBox1.Items.Add("kg");
-            comboBox1.Items.Add("lb");
-            comboBox1.SelectedItem = "kg";
+            comboBox1.Items.Add("g");
+            comboBox1.Items.Add("oz");
+            comboBox1.SelectedItem = "g";
             
 
         }
@@ -108,6 +106,7 @@ namespace BACKPACKapp
             UpdatingGroupsLocationClass.Update(Labels,Weights,ID,CurrentGroupsID,i,PositionStatus,DataGridViews,Buttons,out PositionStatus,out DataGridViews, out Buttons,out CurrentGroupsID);
             WeightsOfGroups[i] = 0;
             CalculatingSummaryWeight(WeightsOfGroups);
+          
         }
         public void AddGroupButton_Click(object sender, EventArgs e)
         {
@@ -188,7 +187,9 @@ namespace BACKPACKapp
                 }
             }
             totalWeightTextBox.Text = sum.ToString();
-            
+            if (Convert.ToInt32(totalWeightTextBox.Text) != 0)
+                comboBox1.Visible = true;
+            else comboBox1.Visible = false;
         }
 
         private void CalculatingWeight(object sender, DataGridViewCellEventArgs e)
@@ -231,13 +232,12 @@ namespace BACKPACKapp
             g.FillPolygon(Brushes.Silver, points);
             ForWritingNameOfGroup nameOfGroup = new ForWritingNameOfGroup("OpenGroup");
             nameOfGroup.ShowDialog();
-            
+            if(nameOfGroup.Result)
             for(int i =0;i<6;i++)
-                if(Buttons[i]!=null)
-                    Buttons[i].PerformClick();
+                if (Buttons[i] != null) Buttons[i].PerformClick();
             g.Clear(Color.FromArgb(70, 149, 151));
             string name =nameOfGroup.textBox1.Text;
-            if (LoadSaveClass.CheckLoadData(name) != 0)
+            if (LoadSaveClass.CheckLoadData(name) != 0 )
             {
                 label2.Text = name;
                 for (CurrentGroupsID = 0; CurrentGroupsID < LoadSaveClass.CheckLoadData(name);)
@@ -303,30 +303,30 @@ namespace BACKPACKapp
             if(WeightsOfGroups.Any(x => x != 0))
             switch (comboBox1.SelectedItem)
             {
-                case "kg":
+                case "g":
                     switch (comboBoxPreviousValue)
                     {
-                        case "lb":
+                        case "oz":
                             for(int i=0;i<WeightsOfGroups.Length;i++)
-                                WeightsOfGroups[i]= (int) (WeightsOfGroups[i] * 0.45359237);
+                                WeightsOfGroups[i]= (int) Math.Round(WeightsOfGroups[i] * 28.35,0);
                             CalculatingSummaryWeight(WeightsOfGroups);
                             LeftClick();
                             break;
-                        case "kg":
+                        case "g":
                             break;
                     }
                     break;
                 
-                case "lb":
+                case "oz":
                     switch (comboBoxPreviousValue)
                     {
-                        case "kg":
+                        case "g":
                             for(int i=0;i<WeightsOfGroups.Length;i++)
-                                WeightsOfGroups[i]= (int) (WeightsOfGroups[i] * 2.204622);
+                                WeightsOfGroups[i]= (int) Math.Round(WeightsOfGroups[i] * 0.03527,0);
                             CalculatingSummaryWeight(WeightsOfGroups);
                             LeftClick();
                             break;
-                        case "lb":
+                        case "oz":
                             break;
                     }
                     break;
