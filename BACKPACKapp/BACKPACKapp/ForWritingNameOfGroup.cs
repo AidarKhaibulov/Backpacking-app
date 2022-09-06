@@ -10,13 +10,13 @@ namespace BACKPACKapp
     {
         public bool Result;
         private Label[] l;
+        private string act;
         private static Button[] _buttons = new Button[10];
         public ForWritingNameOfGroup(string action,Label[] labels=null)
         {
-            
-            
             InitializeComponent();
             l = labels;
+            act = action;
             for (int i = 0; i < 6; i++)
                 if (l != null && l[i] == null)
                 {
@@ -125,16 +125,21 @@ namespace BACKPACKapp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && l.All(s=> textBox1.Text!=s.Text) )
+            if(act=="SaveGroup")
+            {Result = true;
+                Close();}
+            else
             {
-                Result = true;
-                Close();
+                if (textBox1.Text != "" && l.All(s => textBox1.Text != s.Text))
+                {
+                    Result = true;
+                    Close();
+                }
+                else if (textBox1.Text != "")
+                    MessageBox.Show("This name already exists!");
+                else
+                    MessageBox.Show("Write the name of group!");
             }
-            else    
-            if(textBox1.Text != "")
-                MessageBox.Show("This name already exists!");
-            else 
-                MessageBox.Show("Write the name of group!");
         }
 
         private void button2_Click(object sender, EventArgs e)
