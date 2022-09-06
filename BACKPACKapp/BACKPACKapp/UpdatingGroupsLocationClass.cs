@@ -5,7 +5,18 @@ namespace BACKPACKapp
 {
     public static class UpdatingGroupsLocationClass
     {
-        public static void Update(Label[] labels,Label[] weight,bool[] ID,int CurrentGroupsID,int p,bool[] PositionStatusR, DataGridView[] dataGridView, Button[] button,out bool[] PosStat,out DataGridView[] dataGridViewsReturn,out Button[] buttonsReturn,out int currentGroupsIDReturn)
+        public static void Update(
+            Label[] labels,
+            Label[] weight,
+            bool[] ID,
+            int CurrentGroupsID,
+            int p,
+            bool[] PositionStatusR,
+            DataGridView[] dataGridView,
+            Button[] button,out bool[] PosStat,
+            out DataGridView[] dataGridViewsReturn,
+            out Button[] buttonsReturn,
+            out int currentGroupsIDReturn)
         {
             bool[] PositionStatus = PositionStatusR;
             int Coordinates = dataGridView[p].Location.X+dataGridView[p].Location.Y;

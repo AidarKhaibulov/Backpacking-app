@@ -33,8 +33,6 @@ namespace BACKPACKapp
             comboBox1.Items.Add("g");
             comboBox1.Items.Add("oz");
             comboBox1.SelectedItem = "g";
-            
-
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -54,8 +52,18 @@ namespace BACKPACKapp
                     int j;
                     DataGridView[] dataGridView= new DataGridView[6];
                     Button[] button = new Button[6];
-                    addNewGroupClass.AddNewGroup("12",Labels,Weights,ID,DataGridViews, Buttons, CurrentGroupsID, out dataGridView[0], out button[0],
-                        out PositionStatus,out ID,out j);
+                    addNewGroupClass.AddNewGroup("12",
+                        Labels,
+                        Weights,
+                        ID,
+                        DataGridViews,
+                        Buttons,
+                        CurrentGroupsID,
+                        out dataGridView[0],
+                        out button[0],
+                        out PositionStatus,
+                        out ID,
+                        out j);
                     Controls.Add(DataGridViews[j]);
                     dataGridView[0] = dataGridView[j];
                     button[0] = button[j];
@@ -103,7 +111,18 @@ namespace BACKPACKapp
         public void DeleteGroupButtonClick(object sender, EventArgs e)
         {
             int i=Convert.ToInt32(((Control) sender).Name.Replace("button", ""));
-            UpdatingGroupsLocationClass.Update(Labels,Weights,ID,CurrentGroupsID,i,PositionStatus,DataGridViews,Buttons,out PositionStatus,out DataGridViews, out Buttons,out CurrentGroupsID);
+            UpdatingGroupsLocationClass.Update(Labels,
+                Weights,
+                ID,
+                CurrentGroupsID,
+                i,
+                PositionStatus,
+                DataGridViews,
+                Buttons,
+                out PositionStatus,
+                out DataGridViews,
+                out Buttons,
+                out CurrentGroupsID);
             WeightsOfGroups[i] = 0;
             CalculatingSummaryWeight(WeightsOfGroups);
           
@@ -128,9 +147,19 @@ namespace BACKPACKapp
                 {
                     DataGridView[] dataGridView = new DataGridView[6];
                     Button[] button = new Button[6];
-                    addNewGroupClass.AddNewGroup(name, Labels,Weights, ID, DataGridViews, Buttons, CurrentGroupsID,
-                        out dataGridView[0], out button[0],
-                        out PositionStatus, out ID, out j);
+                    addNewGroupClass.AddNewGroup(
+                        name,
+                        Labels,
+                        Weights, 
+                        ID, 
+                        DataGridViews,
+                        Buttons,
+                        CurrentGroupsID,
+                        out dataGridView[0],
+                        out button[0],
+                        out PositionStatus,
+                        out ID,
+                        out j);
                     Controls.Add(DataGridViews[j]);
                     dataGridView[0] = dataGridView[j];
                     button[0] = button[j];
@@ -301,36 +330,36 @@ namespace BACKPACKapp
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(WeightsOfGroups.Any(x => x != 0))
-            switch (comboBox1.SelectedItem)
-            {
-                case "g":
-                    switch (comboBoxPreviousValue)
-                    {
-                        case "oz":
-                            for(int i=0;i<WeightsOfGroups.Length;i++)
-                                WeightsOfGroups[i]= (int) Math.Round(WeightsOfGroups[i] * 28.35,0);
-                            CalculatingSummaryWeight(WeightsOfGroups);
-                            LeftClick();
-                            break;
-                        case "g":
-                            break;
-                    }
-                    break;
+                switch (comboBox1.SelectedItem)
+                {
+                    case "g":
+                        switch (comboBoxPreviousValue)
+                        {
+                            case "oz":
+                                for(int i=0;i<WeightsOfGroups.Length;i++)
+                                    WeightsOfGroups[i]= (int) Math.Round(WeightsOfGroups[i] * 28.35,0);
+                                CalculatingSummaryWeight(WeightsOfGroups);
+                                LeftClick();
+                                break;
+                            case "g":
+                                break;
+                        }
+                        break;
                 
-                case "oz":
-                    switch (comboBoxPreviousValue)
-                    {
-                        case "g":
-                            for(int i=0;i<WeightsOfGroups.Length;i++)
-                                WeightsOfGroups[i]= (int) Math.Round(WeightsOfGroups[i] * 0.03527,0);
-                            CalculatingSummaryWeight(WeightsOfGroups);
-                            LeftClick();
-                            break;
-                        case "oz":
-                            break;
-                    }
-                    break;
-            }
+                    case "oz":
+                        switch (comboBoxPreviousValue)
+                        {
+                            case "g":
+                                for(int i=0;i<WeightsOfGroups.Length;i++)
+                                    WeightsOfGroups[i]= (int) Math.Round(WeightsOfGroups[i] * 0.03527,0);
+                                CalculatingSummaryWeight(WeightsOfGroups);
+                                LeftClick();
+                                break;
+                            case "oz":
+                                break;
+                        }
+                        break;
+                }
         }
         
         private static void LeftClick()
