@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace BACKPACKapp
@@ -12,6 +11,15 @@ namespace BACKPACKapp
         
         public static void SaveData(DataGridView[] dataGridViews,Button[] button, bool [] PositionStatus,Label[] labels,string name, int [] WeightsOfGroups)
         {
+            if(Directory.Exists(Environment.CurrentDirectory + @"\Saves\" + name ))
+            {
+                DirectoryInfo dirInfo = new DirectoryInfo(Environment.CurrentDirectory + @"\Saves\" + name);
+ 
+                foreach (FileInfo file in dirInfo.GetFiles())
+                {
+                    file.Delete();
+                }
+            }
             if (PositionStatus.Any(x => x == false))
             {
                 for (int i = 0; i < 6; i++)
@@ -93,56 +101,61 @@ namespace BACKPACKapp
         
         public static void LoadData(DataGridView[] dataGridViews,Button[] button,Label[] labels,string name,int[] WeightsOfGroups)
         {
-            for (int k = 0; k < 10; k++)
+            int p = 0;
+            for (int k = 0; k < 6; k++)
             {
-                
-                if (File.Exists(Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+ k + @"DGV.txt"))
+                if (File.Exists(Environment.CurrentDirectory + @"\Saves\" + name + @"\" + k + @"DGV.txt"))
                 {
-                    string file = Environment.CurrentDirectory  + @"\Saves\"+ name+@"\"+ k + @"DGV.txt";
+                    string file = Environment.CurrentDirectory + @"\Saves\" + name + @"\" + k + @"DGV.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                     {
                         int n = bw.ReadInt32();
                         int m = bw.ReadInt32();
                         for (int i = 0; i < m; ++i)
                         {
-                            dataGridViews[k].Rows.Add();
+                            dataGridViews[p].Rows.Add();
                             for (int j = 0; j < n; ++j)
                             {
                                 if (bw.ReadBoolean())
                                 {
-                                    dataGridViews[k].Rows[i].Cells[j].Value = bw.ReadString();
+                                    dataGridViews[p].Rows[i].Cells[j].Value = bw.ReadString();
                                 }
                                 else bw.ReadBoolean();
                             }
                         }
                     }
-                    file= Environment.CurrentDirectory  + @"\Saves\"+ name+@"\"+ k + @"DGVLocation.txt";
+
+                    file = Environment.CurrentDirectory + @"\Saves\" + name + @"\" + k + @"DGVLocation.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                     {
                         int x = bw.ReadInt32();
                         int y = bw.ReadInt32();
-                        dataGridViews[k].Location = new Point(x, y);
+                        dataGridViews[p].Location = new Point(x, y);
                     }
-                    file= Environment.CurrentDirectory  + @"\Saves\"+ name+@"\"+ k + @"ButtonLocation.txt";
+
+                    file = Environment.CurrentDirectory + @"\Saves\" + name + @"\" + k + @"ButtonLocation.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                     {
                         int x = bw.ReadInt32();
                         int y = bw.ReadInt32();
-                        button[k].Location = new Point(x, y);
+                        button[p].Location = new Point(x, y);
                     }
-                    file= Environment.CurrentDirectory  + @"\Saves\"+ name+@"\"+ k + @"LabelLocation.txt";
+
+                    file = Environment.CurrentDirectory + @"\Saves\" + name + @"\" + k + @"LabelLocation.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                     {
                         int x = bw.ReadInt32();
                         int y = bw.ReadInt32();
                         string text = bw.ReadString();
-                        labels[k].Location = new Point(x, y);
-                        labels[k].Text = text;
+                        labels[p].Location = new Point(x, y);
+                        labels[p].Text = text;
                     }
-                    file = Environment.CurrentDirectory + @"\Saves\"+ name+@"\"+  @"Weights.txt";
+
+                    file = Environment.CurrentDirectory + @"\Saves\" + name + @"\" + @"Weights.txt";
                     using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
                         for (int i = 0; i < 6; i++)
                             WeightsOfGroups[i] = bw.ReadInt32();
+                    p++;
                 }
             }
         }

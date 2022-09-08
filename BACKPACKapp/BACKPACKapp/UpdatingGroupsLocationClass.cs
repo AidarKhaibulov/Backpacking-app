@@ -22,9 +22,13 @@ namespace BACKPACKapp
             int Coordinates = dataGridView[p].Location.X+dataGridView[p].Location.Y;
             int position = DeterminePosition(Coordinates);
             dataGridView[p].Dispose();
+            dataGridView[p]=null;
             button[p].Dispose();
+            button[p]=null;
             labels[p].Dispose();
+            labels[p]=null;
             weight[p].Dispose();
+            weight[p]=null;
             ID[p] = true;
             CurrentGroupsID--;
             for (int j = 0; j < 6; j++)

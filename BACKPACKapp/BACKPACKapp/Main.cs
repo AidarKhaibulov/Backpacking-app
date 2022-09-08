@@ -204,8 +204,18 @@ namespace BACKPACKapp
 
         private void CalculatingSummaryWeight(int[] weights)
         {
-            int sum = 0;
+            for (int j = 0; j < weights.Length; j++)
+                weights[j] = 0;
             int i = 0;
+            for(;i<DataGridViews.Length;i++)
+            {
+                if (DataGridViews[i] != null) 
+                    for(int j=0;j<DataGridViews[i].RowCount;j++)
+                        if (DataGridViews[i][3, j].Value != null)
+                            weights[i] += Convert.ToInt32( DataGridViews[i][3, j].Value);
+            }
+            int sum = 0;
+            i = 0;
             foreach (var VARIABLE in weights)
             {
                 sum += VARIABLE;
@@ -223,15 +233,16 @@ namespace BACKPACKapp
 
         private void CalculatingWeight(object sender, DataGridViewCellEventArgs e)
         {
-            if (((DataGridView) sender).CurrentCell.ColumnIndex==2)
+            CalculatingSummaryWeight(WeightsOfGroups);
+            /*if (((DataGridView) sender).CurrentCell.ColumnIndex==3)
             {
                 int sum = 0;
                 for (int i=0;i<((DataGridView) sender).Rows.Count;i++)
-                    if ((string) (((DataGridView) sender).Rows[((DataGridView) sender).CurrentCell.RowIndex].Cells[2].Value) != string.Empty)
-                        sum += Convert.ToInt32(((DataGridView) sender)[2,i].Value); 
+                    if ((string) (((DataGridView) sender).Rows[((DataGridView) sender).CurrentCell.RowIndex].Cells[3].Value) != string.Empty)
+                        sum += Convert.ToInt32(((DataGridView) sender)[3,i].Value); 
                 WeightsOfGroups[Convert.ToInt32(((DataGridView) sender).Name.Replace("DataGridView", ""))] = sum;
                 CalculatingSummaryWeight(WeightsOfGroups);
-            }
+            }*/
         }
 
         private void SaveButton_Click(object sender, EventArgs e)

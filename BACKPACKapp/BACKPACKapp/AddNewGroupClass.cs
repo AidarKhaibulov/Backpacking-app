@@ -48,10 +48,19 @@ namespace BACKPACKapp
                         GroupsLocationsCoordinatesForDataGridView[1,CurrentLocationOfPosition] );
                     DataGridViews[j].Name = "DataGridView" + j;
                     DataGridViews[j].Size = new Size(450, 200);
+                    
+                    DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
+                    checkColumn.Name = "X";
+                    checkColumn.HeaderText = "X";
+                    checkColumn.Width = 20;
+                    checkColumn.ReadOnly = false;
+                    checkColumn.FillWeight = 10; //if the datagridview is resized (on form resize) the checkbox won't take up too much; value is relative to the other columns' fill values
+                    DataGridViews[j].Columns.Add(checkColumn);
+                    
                     DataGridViews[j].Columns.Add("_name", "Name");
                     DataGridViews[j].Columns.Add("_description", "Description");
                     DataGridViews[j].Columns.Add("_weight", "Weight");
-                    DataGridViews[j].Columns[1].Width = 247;
+                    DataGridViews[j].Columns[1].Width = 227;
                     Buttons[j].Location = new Point(
                         GroupsLocationsCoordinatesForButtons[0,CurrentLocationOfPosition],
                         GroupsLocationsCoordinatesForButtons[1,CurrentLocationOfPosition] );
